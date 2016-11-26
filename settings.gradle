@@ -1,0 +1,8 @@
+rootProject.name = 'yardsale'
+include 'yardsale-store'
+findProject(':yardsale-store')?.name = 'store'
+include 'yardsale-gateway'
+findProject(':yardsale-gateway')?.name = 'gateway'
+include 'yardsale-user'
+findProject(':yardsale-user')?.name = 'user'
+
