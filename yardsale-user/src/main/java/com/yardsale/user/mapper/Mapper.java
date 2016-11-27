@@ -1,4 +1,4 @@
-package com.yardsale.mapper;
+package com.yardsale.user.mapper;
 
 public interface Mapper<From, To> {
 

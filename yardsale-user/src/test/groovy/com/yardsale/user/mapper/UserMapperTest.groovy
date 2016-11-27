@@ -1,7 +1,7 @@
-package com.yardsale.mapper
+package com.yardsale.user.mapper
 
-import com.yardsale.dao.entity.UserEntity
-import com.yardsale.domain.User
+import com.yardsale.user.dao.entity.UserEntity
+import com.yardsale.user.domain.User
 import spock.lang.Specification
 
 class UserMapperTest

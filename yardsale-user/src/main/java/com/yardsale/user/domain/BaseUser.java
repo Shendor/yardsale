@@ -1,14 +1,12 @@
-package com.yardsale.dao.entity;
+package com.yardsale.user.domain;
 
 import java.time.LocalDate;
 
-public class UserEntity {
+public class BaseUser {
 
     private long id;
-    private String password;
-    private String email;
-    private String avatarUrl;
     private String name;
+    private String avatarUrl;
     private LocalDate registerDate;
 
 
@@ -22,33 +20,8 @@ public class UserEntity {
     }
 
 
-    public String getPassword() {
-        return password;
-    }
-
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-
-    public String getEmail() {
-        return email;
-    }
-
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-
-    public String getAvatarUrl() {
-        return avatarUrl;
-    }
-
-
-    public void setAvatarUrl(String avatarUrl) {
-        this.avatarUrl = avatarUrl;
+    public BaseUser() {
+        registerDate = LocalDate.now();
     }
 
 
@@ -62,6 +35,16 @@ public class UserEntity {
     }
 
 
+    public String getAvatarUrl() {
+        return avatarUrl;
+    }
+
+
+    public void setAvatarUrl(String avatarUrl) {
+        this.avatarUrl = avatarUrl;
+    }
+
+
     public LocalDate getRegisterDate() {
         return registerDate;
     }
@@ -70,4 +53,5 @@ public class UserEntity {
     public void setRegisterDate(LocalDate registerDate) {
         this.registerDate = registerDate;
     }
+
 }

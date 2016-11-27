@@ -1,4 +1,4 @@
-package com.yardsale.domain;
+package com.yardsale.user.domain;
 
 public class User extends BaseUser {
 

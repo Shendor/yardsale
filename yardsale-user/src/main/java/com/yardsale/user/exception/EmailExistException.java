@@ -1,4 +1,4 @@
-package com.yardsale.exception;
+package com.yardsale.user.exception;
 
 public class EmailExistException extends RuntimeException {
 

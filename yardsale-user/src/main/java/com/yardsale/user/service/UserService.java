@@ -1,8 +1,8 @@
-package com.yardsale.service;
+package com.yardsale.user.service;
 
 import java.util.Optional;
 
-import com.yardsale.domain.User;
+import com.yardsale.user.domain.User;
 
 public interface UserService {
 

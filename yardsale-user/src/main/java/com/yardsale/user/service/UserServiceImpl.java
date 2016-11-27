@@ -1,13 +1,13 @@
-package com.yardsale.service;
+package com.yardsale.user.service;
 
 
 import java.util.Optional;
 
-import com.yardsale.dao.UserDao;
-import com.yardsale.dao.entity.UserEntity;
-import com.yardsale.domain.User;
-import com.yardsale.exception.EmailExistException;
-import com.yardsale.mapper.Mapper;
+import com.yardsale.user.dao.UserDao;
+import com.yardsale.user.dao.entity.UserEntity;
+import com.yardsale.user.domain.User;
+import com.yardsale.user.exception.EmailExistException;
+import com.yardsale.user.mapper.Mapper;
 import org.apache.log4j.Logger;
 
 public class UserServiceImpl implements UserService {

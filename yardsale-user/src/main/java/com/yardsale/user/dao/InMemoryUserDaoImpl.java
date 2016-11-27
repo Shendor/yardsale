@@ -1,10 +1,10 @@
-package com.yardsale.dao;
+package com.yardsale.user.dao;
 
 import java.util.Optional;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
-import com.yardsale.dao.entity.UserEntity;
+import com.yardsale.user.dao.entity.UserEntity;
 
 public class InMemoryUserDaoImpl implements UserDao {
 

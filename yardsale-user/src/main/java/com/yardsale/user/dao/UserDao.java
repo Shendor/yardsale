@@ -1,8 +1,8 @@
-package com.yardsale.dao;
+package com.yardsale.user.dao;
 
 import java.util.Optional;
 
-import com.yardsale.dao.entity.UserEntity;
+import com.yardsale.user.dao.entity.UserEntity;
 
 public interface UserDao {
 
