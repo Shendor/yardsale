@@ -1,5 +1,7 @@
 package com.yardsale.store.validator
 
+import com.yardsale.store.service.Command
+
 trait Validator[T] {
 
   def validate(item: T): Seq[Violation] = {
@@ -15,5 +17,11 @@ trait Validator[T] {
     case true => List(Violation(fieldName, errorCode))
     case _ => List.empty
   }
+
+}
+
+object Validator {
+
+  case class CommandViolated(command : Command, violations: Seq[Violation])
 
 }
