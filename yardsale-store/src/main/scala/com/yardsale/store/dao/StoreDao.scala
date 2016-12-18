@@ -16,6 +16,6 @@ trait StoreDao {
 
   def findStoreItemsByUserId(userId: Long): Seq[StoreItemEntity]
 
-  def findStoreItemsFromDate(date: LocalDateTime): Seq[StoreItemEntity]
+  def findStoreItemsFromDate(date: LocalDateTime): List[StoreItemEntity]
 
 }

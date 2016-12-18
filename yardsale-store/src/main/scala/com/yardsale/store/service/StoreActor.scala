@@ -21,6 +21,7 @@ class StoreActor(storeDao: StoreDao,
       if (violations.isEmpty) {
         storeDao.insertStoreItem(storeItemMapper.mapModel(storeItem))
         sender() ! StoreItemPosted(storeItem)
+        context.system.eventStream.publish(StoreItemPosted(storeItem))
       }
       else {
         sender() ! CommandViolated(postCommand, violations)
