@@ -9,3 +9,9 @@ class UpdateStoreItemValidator(storeItemValidator: Validator[StoreItem]) extends
     storeItemValidator.validate(updateStoreItem.storeItem)
   }
 }
+
+object UpdateStoreItemValidator {
+  val validator: UpdateStoreItemValidator = new UpdateStoreItemValidator(StoreItemValidator())
+
+  def apply(): UpdateStoreItemValidator = validator
+}

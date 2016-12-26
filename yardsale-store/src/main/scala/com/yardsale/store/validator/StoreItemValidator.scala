@@ -10,3 +10,9 @@ class StoreItemValidator extends Validator[StoreItem] {
       verify(storeItem.price < 0)("price", "post_store_item.price.invalid")
   }
 }
+
+object StoreItemValidator {
+  val validator: StoreItemValidator = new StoreItemValidator()
+
+  def apply(): StoreItemValidator = validator
+}

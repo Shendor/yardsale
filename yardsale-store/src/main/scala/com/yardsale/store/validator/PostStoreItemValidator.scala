@@ -9,3 +9,9 @@ class PostStoreItemValidator(storeItemValidator: Validator[StoreItem]) extends V
     storeItemValidator.validate(postStoreItem.storeItem)
   }
 }
+
+object PostStoreItemValidator {
+  val validator: PostStoreItemValidator = new PostStoreItemValidator(StoreItemValidator())
+
+  def apply(): PostStoreItemValidator = validator
+}

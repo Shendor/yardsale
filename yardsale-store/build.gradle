@@ -14,10 +14,16 @@ dependencies {
 
     compile group: 'org.scala-lang', name: 'scala-library', version: '2.11.8'
     compile group: 'com.typesafe.akka', name: 'akka-actor_2.11', version: '2.4.7'
-    compile group: 'com.typesafe.akka', name: 'akka-persistence_2.11', version: '2.4.2'
-    compile group: 'com.typesafe.akka', name: 'akka-persistence-query-experimental_2.11', version: '2.4.14'
+    compile group: 'com.typesafe.akka', name: 'akka-http_2.11', version: '10.0.0'
+    compile group: 'com.typesafe.akka', name: 'akka-http-core_2.11', version: '10.0.0'
+    compile group: 'com.typesafe.akka', name: 'akka-http-testkit_2.11', version: '10.0.0'
     compile group: 'org.scala-lang.modules', name: 'scala-async_2.11', version: '0.9.6'
-    compile group: 'org.scalaz', name: 'scalaz-core_2.11', version: '7.2.8'
+    compile group: 'com.typesafe.akka', name: 'akka-http-spray-json_2.11', version: '10.0.0'
+    compile group: 'org.json4s', name: 'json4s-native_2.11', version: '3.5.0'
+    compile group: 'com.fasterxml.jackson.module', name: 'jackson-module-scala_2.11', version: '2.8.4'
+//    compile group: 'com.typesafe.akka', name: 'akka-http-jackson_2.11', version: '10.0.0'
+
+
 
     testCompile group: 'com.typesafe.akka', name: 'akka-testkit_2.11', version: '2.4.7'
     testCompile group: 'org.scalatest', name: 'scalatest_2.11', version: '3.0.0'

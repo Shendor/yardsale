@@ -1,5 +1,7 @@
 package com.yardsale.store.mapper
 
+import java.time.LocalDateTime
+
 import com.yardsale.store.dao.entity.StoreItemEntity
 import com.yardsale.store.domain.StoreItem
 
@@ -30,6 +32,8 @@ class StoreItemMapper extends Mapper[StoreItem, StoreItemEntity] {
         case _ => previousItem ++ splitter ++ item.toString
       }
 
+    if(storeItem.postedDate == null) storeItem.postedDate = LocalDateTime.now()
+
     val storeItemEntity: StoreItemEntity = new StoreItemEntity
     storeItemEntity.id = storeItem.id
     storeItemEntity.name = storeItem.name
@@ -45,3 +49,8 @@ class StoreItemMapper extends Mapper[StoreItem, StoreItemEntity] {
   }
 }
 
+object StoreItemMapper {
+  val mapper = new StoreItemMapper()
+
+  def apply(): StoreItemMapper = mapper
+}

@@ -8,3 +8,9 @@ class DeleteStoreItemValidator() extends Validator[DeleteStoreItem] {
     verify(deleteStoreItem.storeItemId < 1)("id", "post_store_item.id.invalid")
   }
 }
+
+object DeleteStoreItemValidator {
+  val validator: DeleteStoreItemValidator = new DeleteStoreItemValidator()
+
+  def apply(): DeleteStoreItemValidator = validator
+}

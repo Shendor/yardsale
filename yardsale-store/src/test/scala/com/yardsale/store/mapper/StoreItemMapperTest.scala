@@ -89,6 +89,15 @@ class StoreItemMapperTest extends FreeSpec {
         Matchers.assert(storeItemEntity.imagesUrl.isEmpty)
       }
     }
+
+    "When maps Store Item without posted date" - {
+      val storeItem: StoreItem = new StoreItem
+      val storeItemEntity: StoreItemEntity = mapper.mapModel(storeItem)
+
+      "Then mapped with current date" in {
+        Matchers.assert(storeItemEntity.postedDate != null)
+      }
+    }
   }
 
 }
