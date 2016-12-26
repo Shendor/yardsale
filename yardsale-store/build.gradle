@@ -18,12 +18,7 @@ dependencies {
     compile group: 'com.typesafe.akka', name: 'akka-http-core_2.11', version: '10.0.0'
     compile group: 'com.typesafe.akka', name: 'akka-http-testkit_2.11', version: '10.0.0'
     compile group: 'org.scala-lang.modules', name: 'scala-async_2.11', version: '0.9.6'
-    compile group: 'com.typesafe.akka', name: 'akka-http-spray-json_2.11', version: '10.0.0'
-    compile group: 'org.json4s', name: 'json4s-native_2.11', version: '3.5.0'
     compile group: 'com.fasterxml.jackson.module', name: 'jackson-module-scala_2.11', version: '2.8.4'
-//    compile group: 'com.typesafe.akka', name: 'akka-http-jackson_2.11', version: '10.0.0'
-
-
 
     testCompile group: 'com.typesafe.akka', name: 'akka-testkit_2.11', version: '2.4.7'
     testCompile group: 'org.scalatest', name: 'scalatest_2.11', version: '3.0.0'
