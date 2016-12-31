@@ -11,8 +11,8 @@ import com.yardsale.store.util.JacksonJsonSupport
 
 import scala.concurrent.{ExecutionContext, Future}
 
-class StoreRoute(actorSystem: ActorSystem)(implicit executionContext: ExecutionContext) extends JacksonJsonSupport
-  with ResponseHandlerRoute {
+class StoreRoute(actorSystem: ActorSystem)(implicit executionContext: ExecutionContext) extends ResponseHandlerRoute
+  with JacksonJsonSupport {
 
   private val storeActor = actorSystem.actorOf(Props(StoreActor(InMemoryStoreDao())), "storeActor")
 

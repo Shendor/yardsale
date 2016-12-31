@@ -16,13 +16,12 @@ dependencies {
     compile group: 'com.typesafe.akka', name: 'akka-actor_2.11', version: '2.4.7'
     compile group: 'com.typesafe.akka', name: 'akka-http_2.11', version: '10.0.0'
     compile group: 'com.typesafe.akka', name: 'akka-http-core_2.11', version: '10.0.0'
-    compile group: 'com.typesafe.akka', name: 'akka-http-testkit_2.11', version: '10.0.0'
     compile group: 'org.scala-lang.modules', name: 'scala-async_2.11', version: '0.9.6'
     compile group: 'com.fasterxml.jackson.module', name: 'jackson-module-scala_2.11', version: '2.8.4'
 
+    testCompile group: 'com.typesafe.akka', name: 'akka-http-testkit_2.11', version: '10.0.0'
     testCompile group: 'com.typesafe.akka', name: 'akka-testkit_2.11', version: '2.4.7'
     testCompile group: 'org.scalatest', name: 'scalatest_2.11', version: '3.0.0'
     testCompile group: 'org.mockito', name: 'mockito-core', version: '2.2.26'
     testCompile group: 'org.scalamock', name: 'scalamock-scalatest-support_2.11', version: '3.4.2'
-
 }

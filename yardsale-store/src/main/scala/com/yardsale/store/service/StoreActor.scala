@@ -73,15 +73,15 @@ object StoreActor {
 
   case class PostStoreItem(storeItem: StoreItem) extends Command
 
-  case class StoreItemPosted(storeItem: StoreItem)
+  case class StoreItemPosted(storeItem: StoreItem) extends Event[StoreItem](storeItem)
 
   case class UpdateStoreItem(storeItem: StoreItem) extends Command
 
-  case class StoreItemUpdated(storeItem: StoreItem)
+  case class StoreItemUpdated(storeItem: StoreItem) extends Event[StoreItem](storeItem)
 
   case class DeleteStoreItem(storeItemId: Long) extends Command
 
-  case class StoreItemDeleted(storeItemId: Long)
+  case class StoreItemDeleted(storeItemId: Long) extends Event[Long](storeItemId)
 
   def apply(storeDao: StoreDao): StoreActor =
     new StoreActor(storeDao, StoreItemMapper(), PostStoreItemValidator(), UpdateStoreItemValidator(), DeleteStoreItemValidator())
