@@ -1,4 +1,4 @@
-FROM gradle:4.2-jdk8 as build
+FROM gradle:4.0-jdk8 as build
 ENV GRADLE_USER_HOME /home/gradle
 USER root
 COPY . .
