@@ -55,7 +55,7 @@ dependencies {
 //ScalaCompileOptions.metaClass.useCompileDaemon = false
 
 scalaStyle {
-    configLocation = "$rootDir/scalastyle_config.xml"
+    configLocation = "$rootDir/yardsale-store/scalastyle_config.xml"
     includeTestSourceDirectory = true
     source = "src/main/scala"
     testSource = "src/test/scala"
