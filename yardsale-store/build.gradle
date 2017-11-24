@@ -2,25 +2,76 @@ group 'com.yardsale'
 version '1.0-SNAPSHOT'
 
 apply plugin: 'scala'
+apply plugin: 'scalaStyle'
+apply plugin: 'application'
 
 sourceCompatibility = 1.8
 
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath(
+                [group: "org.github.ngbinh.scalastyle", name: "gradle-scalastyle-plugin_2.11", version: "0.7.2"]
+        )
+    }
+}
+
+mainClassName = "com.yardsale.store.ws.WebServer"
+
 repositories {
     mavenCentral()
+}
+
+jar {
+    baseName = project.name
+    manifest {
+        attributes("Main-Class": mainClassName)
+    }
 }
 
 dependencies {
     compile project(":user")
 
     compile group: 'org.scala-lang', name: 'scala-library', version: '2.11.8'
-    compile group: 'com.typesafe.akka', name: 'akka-actor_2.11', version: '2.4.7'
+    compile group: 'org.scala-lang', name: 'scala-compiler', version: "2.11.8"
+    compile group: 'com.typesafe.akka', name: 'akka-actor_2.11', version: '2.4.14'
+    compile group: 'com.typesafe.akka', name: 'akka-stream_2.11', version: '2.4.14'
     compile group: 'com.typesafe.akka', name: 'akka-http_2.11', version: '10.0.0'
     compile group: 'com.typesafe.akka', name: 'akka-http-core_2.11', version: '10.0.0'
     compile group: 'org.scala-lang.modules', name: 'scala-async_2.11', version: '0.9.6'
     compile group: 'com.fasterxml.jackson.module', name: 'jackson-module-scala_2.11', version: '2.8.4'
-
+    compile "org.scala-lang:scala-library:2.11.8"
     testCompile group: 'com.typesafe.akka', name: 'akka-http-testkit_2.11', version: '10.0.0'
     testCompile group: 'com.typesafe.akka', name: 'akka-testkit_2.11', version: '2.4.7'
     testCompile group: 'org.scalatest', name: 'scalatest_2.11', version: '3.0.0'
     testCompile group: 'org.scalamock', name: 'scalamock-scalatest-support_2.11', version: '3.4.2'
 }
+
+//ScalaCompileOptions.metaClass.daemonServer = true
+//ScalaCompileOptions.metaClass.fork = true
+//ScalaCompileOptions.metaClass.useAnt = false
+//ScalaCompileOptions.metaClass.useCompileDaemon = false
+
+scalaStyle {
+    configLocation = "$rootDir/scalastyle_config.xml"
+    includeTestSourceDirectory = true
+    source = "src/main/scala"
+    testSource = "src/test/scala"
+}
+
+check {
+    dependsOn "scalaStyle"
+}
+
+run {
+    mainClassName = 'com.yardsale.store.ws.WebServer'
+    standardInput = System.in
+}
+/*
+task runStoreService(type: JavaExec, dependsOn: classes) {
+    main = mainClassName
+    classpath sourceSets.main.runtimeClasspath
+    classpath configurations.runtime
+}*/
