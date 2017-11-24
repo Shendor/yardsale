@@ -6,21 +6,18 @@ import akka.stream.ActorMaterializer
 
 import scala.io.StdIn
 
-object WebServer {
+object WebServer extends App {
+  implicit val system = ActorSystem("my-system")
+  implicit val materializer = ActorMaterializer()
+  // needed for the future flatMap/onComplete in the end
+  implicit val executionContext = system.dispatcher
 
-  def main(args: Array[String]) {
-    implicit val system = ActorSystem("my-system")
-    implicit val materializer = ActorMaterializer()
-    // needed for the future flatMap/onComplete in the end
-    implicit val executionContext = system.dispatcher
+  val bindingFuture = Http().bindAndHandle(StoreRoutes(system).routes, "localhost", 9090)
 
-    val bindingFuture = Http().bindAndHandle(StoreRoutes(system).routes, "localhost", 8080)
-
-    println(s"Server online at http://localhost:8080/\nPress RETURN to stop...")
-    StdIn.readLine() // let it run until user presses return
-    bindingFuture
-      .flatMap(_.unbind()) // trigger unbinding from the port
-      .onComplete(_ => system.terminate()) // and shutdown when done
-  }
+  println(s"Server online at http://localhost:8080/\nPress RETURN to stop...")
+  StdIn.readLine() // let it run until user presses return
+  bindingFuture
+    .flatMap(_.unbind()) // trigger unbinding from the port
+    .onComplete(_ => system.terminate()) // and shutdown when done
 
 }
