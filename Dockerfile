@@ -7,5 +7,8 @@ RUN gradle build
 
 FROM java:8u111-jre-alpine
 WORKDIR /yardsale-app
-COPY --from=build /home/gradle/build/libs/yardsale-1.0-SNAPSHOT.jar /yardsale-app
-CMD ["java", "-jar", "yardsale-1.0-SNAPSHOT.jar"]
+#COPY --from=build /home/gradle/build/libs/yardsale-1.0-SNAPSHOT.jar /yardsale-app
+COPY --from=build /home/gradle/yardsale-store/build/libs/store-1.0-SNAPSHOT.jar /yardsale-app
+CMD ["gradle", "run"]
+
+#CMD ["java", "-jar", "yardsale-1.0-SNAPSHOT.jar"]
