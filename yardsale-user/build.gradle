@@ -3,6 +3,7 @@ version '1.0-SNAPSHOT'
 
 apply plugin: 'java'
 apply plugin: 'groovy'
+apply plugin: 'application'
 
 sourceCompatibility = 1.8
 
@@ -17,9 +18,25 @@ dependencies {
     compile group: 'org.springframework', name: 'spring-core', version: '5.0.1.RELEASE'
     compile group: 'org.springframework', name: 'spring-web', version: '5.0.1.RELEASE'
     compile group: 'org.springframework', name: 'spring-beans', version: '5.0.1.RELEASE'
+    compile group: 'org.springframework.boot', name: 'spring-boot', version: '1.5.8.RELEASE'
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '1.5.8.RELEASE'
     compile group: 'org.springframework.boot', name: 'spring-boot-starter', version: '1.5.8.RELEASE'
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.9.2'
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.9.2'
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-annotations', version: '2.9.2'
 
 
     testCompile group: 'org.spockframework', name: 'spock-core', version: '1.0-groovy-2.4'
+}
+
+jar {
+    baseName = project.name
+    manifest {
+        attributes("Main-Class": 'com.yardsale.user.Launcher')
+    }
+}
+
+run {
+    mainClassName = 'com.yardsale.user.Launcher'
+    standardInput = System.in
 }
