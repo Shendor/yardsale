@@ -3,6 +3,8 @@ ENV GRADLE_USER_HOME /home/gradle
 USER root
 COPY . .
 RUN ls
+RUN gradle build
+WORKDIR /home/gradle/yardsale-store/build/libs/
 RUN gradle run
 
 #FROM java:8u111-jre-alpine
