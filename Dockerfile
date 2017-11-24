@@ -5,6 +5,7 @@ COPY . .
 RUN ls
 RUN gradle build
 WORKDIR /home/gradle/yardsale-store
+RUN ls
 RUN gradle run
 
 #FROM java:8u111-jre-alpine
