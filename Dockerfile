@@ -4,7 +4,7 @@ USER root
 COPY . .
 RUN ls
 RUN gradle build
-WORKDIR /home/gradle/yardsale-store/build/libs/
+WORKDIR /home/gradle/yardsale-store
 RUN gradle run
 
 #FROM java:8u111-jre-alpine
